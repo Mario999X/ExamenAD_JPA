@@ -40,29 +40,34 @@ fun getPilotosInit() = listOf(
     Piloto(
         id = 1,
         nombre = "Kratos",
-        experiencia = 10,
         planetaOrigen = "Tierra",
         fechaIncorporacion = LocalDate.now().minusYears(2),
-        navePilotada = getNavesInit()[1],
+        navePilotada = getNavesInit()[0],
         capitan = false
     ),
     Piloto(
         id = 2,
         nombre = "Atreus",
-        experiencia = 10,
         planetaOrigen = "Tierra",
         fechaIncorporacion = LocalDate.now().minusYears(1),
-        navePilotada = getNavesInit()[2],
+        navePilotada = getNavesInit()[1],
         capitan = true
     ),
     Piloto(
         id = 3,
         nombre = "Obi-Wan",
-        experiencia = 10,
         planetaOrigen = "Desconocido",
         fechaIncorporacion = LocalDate.now().minusYears(5),
-        navePilotada = getNavesInit()[0],
+        navePilotada = getNavesInit()[2],
         capitan = false
+    ),
+    Piloto(
+        id = 4,
+        nombre = "Anakin",
+        planetaOrigen = "Desconocido",
+        fechaIncorporacion = LocalDate.now().minusYears(5),
+        navePilotada = getNavesInit()[3],
+        capitan = true
     )
 )
 

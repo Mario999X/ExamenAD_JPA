@@ -15,9 +15,6 @@ class ExamenController(
     private val naveRepository: NaveRepository,
     private val batallaRepository: BatallaRepository
 ) {
-    // Aqui realizariamos las operaciones, y ademas, al pasarle los repositorios podemos tener solo un controlador.
-    // Como se pide en el examen.
-
     // PILOTOS
     fun createPiloto(piloto: Piloto): Piloto {
         log.debug { "Creando $piloto" }
@@ -72,10 +69,20 @@ class ExamenController(
         return naveRepository.delete(it)
     }
 
-    // BATALLAS
+    // BATALLAS -- Limitando el numero de capitanes tanto en el create como en el update.
     fun createBatalla(batalla: Batalla): Batalla {
         log.debug { "Creando $batalla" }
-        batallaRepository.save(batalla)
+        var capitan = 0
+        batalla.pilotosInvolucrados.forEach {
+            if (it.capitan) {
+                capitan++
+            }
+        }
+        if (capitan >= 2) {
+            System.err.println("Error en la creacion de $batalla | Exceso de capitanes($capitan)")
+        } else {
+            batallaRepository.save(batalla)
+        }
         return batalla
     }
 
@@ -91,7 +98,18 @@ class ExamenController(
 
     fun updateBatalla(batalla: Batalla): Batalla {
         log.debug { "Actualizando $batalla" }
-        return batallaRepository.save(batalla)
+        var capitan = 0
+        batalla.pilotosInvolucrados.forEach {
+            if (it.capitan) {
+                capitan++
+            }
+        }
+        if (capitan >= 2) {
+            System.err.println("Error en la actualizacion de $batalla | Exceso de capitanes($capitan)")
+        } else {
+            batallaRepository.save(batalla)
+        }
+        return batalla
     }
 
     fun deleteBatalla(it: Batalla): Boolean {

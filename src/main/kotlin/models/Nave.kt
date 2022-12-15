@@ -7,6 +7,7 @@ import javax.persistence.*
 @Entity
 // Mania mia el querer cambiar el nombre de la tabla, no seria necesario, el indicar @Table si.
 @Table(name = "naves")
+// Dejamos lista una consulta que usaremos en el repositorioImpl para ser usada de forma general.
 @NamedQuery(name = "Nave.findAll", query = "SELECT n FROM Nave n")
 data class Nave(
     val tipoNave: TipoNave,
@@ -17,10 +18,10 @@ data class Nave(
     val misilesProtonicos: Int,
     val saltoHiperEspacio: Boolean,
 ) {
-
     enum class TipoNave {
         X_WIND, T_FIGHTER
     }
+
     // Tengo en cuenta el problema de la recursividad, si indicara al piloto, el piloto mostraria la nave que tiene asignada.
     // Otra solucion seria mostrar solo el ID o el nombre del piloto.
     override fun toString(): String {
