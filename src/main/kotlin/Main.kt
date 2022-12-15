@@ -23,8 +23,8 @@ En una batalla pueden participar muchos pilotos, y ellos solo podian participar 
 
 Se pedia:
 - Plantear las relaciones entre cada entidad, preparar los modelos con las notaciones respectivas.
-- Realizar las operaciones CRUD de la BBDD (repositorios, controladores y main)
-- Realizar los test de controladores y repositorios
+- Realizar las operaciones CRUD de la BBDD (repositorios, controlador y main); solo 1 controlador.
+- Realizar los test del controlador y repositorios
 
 Tiempo para resolverlo: 4h:30min
 * */
