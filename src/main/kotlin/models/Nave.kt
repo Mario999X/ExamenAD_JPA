@@ -12,7 +12,7 @@ import javax.persistence.*
 data class Nave(
     val tipoNave: TipoNave,
     // Con estas notaciones indicamos que es el identificador principal y que se genere al introducirse
-    @Id @GeneratedValue
+    @Id
     val id: Long,
     val fechaAlta: LocalDate,
     val misilesProtonicos: Int,

@@ -9,7 +9,9 @@
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
         <!-- indicamos las clases a ser mapeadas por JPA -->
-
+        <class>models.Batalla</class>
+        <class>models.Nave</class>
+        <class>models.Piloto</class>
         <!--   Indicamos las propiedades de configuración de la implementación de JPA que estamos usando -->
         <properties>
             <property name="hibernate.connection.url" value="jdbc:h2:mem:examen-test;DB_CLOSE_DELAY=-1;"/>
